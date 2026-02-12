@@ -93,35 +93,35 @@ h1{
 /* BIG PHOTO HEART */
 .photo-heart{
   position:absolute;
-  width:180px;
-  height:180px;
+  width:200px;
+  height:200px;
   background:red;
   transform:rotate(-45deg);
-  animation: floatUp 5s ease forwards;
+  animation: floatUp 6s ease forwards;
 }
 
 .photo-heart::before,
 .photo-heart::after{
   content:"";
   position:absolute;
-  width:180px;
-  height:180px;
+  width:200px;
+  height:200px;
   background:red;
   border-radius:50%;
 }
 
-.photo-heart::before{ top:-90px; }
-.photo-heart::after{ left:90px; }
+.photo-heart::before{ top:-100px; }
+.photo-heart::after{ left:100px; }
 
 /* IMAGE INSIDE HEART */
 .photo-heart img{
   position:absolute;
-  width:140px;
-  height:140px;
+  width:150px;
+  height:150px;
   object-fit:cover;
   transform:rotate(45deg);
-  top:20px;
-  left:20px;
+  top:25px;
+  left:25px;
   border-radius:15px;
 }
 
@@ -201,15 +201,17 @@ function createSmallHearts(){
   }
 }
 
-/* BIG HEARTS WITH PHOTOS */
+/* 4 SEPARATE HEARTS WITH 4 PHOTOS */
 function showHeartPhotos(){
   const images=["img1.jpg","img2.jpg","img3.jpg","img4.jpg"];
   const container=document.getElementById("heartContainer");
 
-  images.forEach(src=>{
+  const positions=["10%","30%","55%","75%"];
+
+  images.forEach((src,index)=>{
     const heart=document.createElement("div");
     heart.className="photo-heart";
-    heart.style.left=Math.random()*70+"%";
+    heart.style.left=positions[index];
     heart.style.bottom="0px";
 
     const img=document.createElement("img");
@@ -218,7 +220,7 @@ function showHeartPhotos(){
     heart.appendChild(img);
     container.appendChild(heart);
 
-    setTimeout(()=>heart.remove(),5000);
+    setTimeout(()=>heart.remove(),6000);
   });
 }
 
