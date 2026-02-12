@@ -93,16 +93,18 @@ h1{
 /* HEART SHAPE HOLDING FULL PHOTO */
 .photo-heart{
   position:absolute;
-  width:20vw;
+  width:20vw;        /* scales with screen */
   height:20vw;
-  max-width:220px;
+  max-width:220px;   /* laptop size limit */
   max-height:220px;
-  min-width:120px;
-  min-height:120px;
+  min-width:130px;   /* phone minimum */
+  min-height:130px;
   animation: floatUp 7s ease forwards;
+}
+
 
   transform: translateX(-50%); /* keeps heart fully inside position */
-}
+
 
 /* actual heart mask */
 .photo-heart img{
@@ -195,7 +197,7 @@ function showHeartPhotos(){
   const container=document.getElementById("heartContainer");
 
  /* perfect spacing for phone + laptop */
-const positions = ["12.5%","37.5%","62.5%","87.5%"]; // far apart
+const positions = ["5%","30%","55%","80%"]; // far apart
 
   images.forEach((src,index)=>{
     const heart=document.createElement("div");
