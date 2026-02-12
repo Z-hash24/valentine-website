@@ -188,22 +188,22 @@ function showHeartPhotos(){
   const images=["img1.JPG","img2.JPG","img3.jpg","img4.jpg"];
   const container=document.getElementById("heartContainer");
 
-  const positions = ["12%", "37%", "62%", "87%"]; // far apart
+ const positions=["2%","28%","60%","88%"]; // far apart
 
- images.forEach((src,index)=>{
+  images.forEach((src,index)=>{
+    const heart=document.createElement("div");
+    heart.className="photo-heart";
+    heart.style.left=positions[index];
+    heart.style.bottom="-50px";
 
-  const heart = document.createElement("div");
-  heart.className = "photo-heart";
+    const img=document.createElement("img");
+    img.src=src;
 
-  heart.style.left = positions[index];  // equal gap
-  heart.style.top = "120px";             // same level
+    heart.appendChild(img);
+    container.appendChild(heart);
 
-  const img = document.createElement("img");
-  img.src = src;
-
-  heart.appendChild(img);
-  container.appendChild(heart);
-});
+    setTimeout(()=>heart.remove(),7000);
+  });
 }
 
 </script>
